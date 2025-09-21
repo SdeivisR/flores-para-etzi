@@ -42,6 +42,10 @@ body {
   align-items: center;
   height: 100vh;
 }
+.card.show .fade-text {
+  animation: fadeUp 1s ease forwards;
+  animation-delay: 1.5s; /* ajusta según el orden */
+}
 
 /* ---------------------------- */
 /* Contenedor de la carta */
