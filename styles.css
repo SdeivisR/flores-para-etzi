@@ -206,7 +206,8 @@ body {
     width: 90%;        /* ocupa casi toda la pantalla */
     max-width: 400px;  /* opcional, para que no quede gigante */
     margin: 0 auto;    /* centra horizontal */
-    transform-origin: top center; /* se despliega desde el centro arriba */
+box-sizing: border-box; /* incluye padding y border en el width */
+    padding: 0 10px;
   }
 
   .card {
