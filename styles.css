@@ -1,0 +1,243 @@
+body {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  background-color: #f7f7f7;
+  font-family: "Segoe UI", Arial, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+
+  background: url('../images/fondo.png') no-repeat center center;
+  background-size: cover; /* ocupa toda la pantalla */
+  background-attachment: fixed; /* efecto de parallax */
+  background-position: center top;
+}
+/* Botón */
+#open-card-btn {
+  padding: 15px 30px;
+  font-size: 1.2em;
+  font-weight: bold;
+  color: #fff;
+  background: linear-gradient(45deg, #fff2bd, #ff5a5a);
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  box-shadow: 0 6px 15px rgba(240, 201, 41, 0.5);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  animation: pulse 2s infinite;
+}
+/* Contenedor del botón */
+.button-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* ocupa toda la pantalla */
+}
+#open-card-btn:hover {
+  transform: scale(1.1);
+  box-shadow: 0 8px 20px rgba(240, 201, 41, 0.7);
+}
+
+/* Contenedor de la carta */
+.card-container {
+  width: 500px;
+  max-width: 90%;
+  background: #fffbe6;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  overflow: hidden;
+  transform: scaleY(0);     /* Oculta tipo rollo */
+  transform-origin: top;    /* Se despliega desde arriba */
+  transition: transform 0.8s ease-in-out;
+  position: relative;
+  z-index: 10;
+  perspective: 1200px; 
+}
+
+/* Carta */
+.card {
+  width: 100%;
+  height: 100%;
+  background: #fffef0;
+  border-radius: 15px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+  transform: scale(0.8) rotateX(-90deg);
+  opacity: 0;
+  transition: transform 1s ease, opacity 1s ease;
+}
+
+.card-inside {
+  position: relative;
+  z-index: 20; /* Mensaje siempre arriba */
+}
+
+/* Cuando se muestra */
+.card-container.show {
+  transform: scaleY(1);
+}
+.card.show {
+  transform: scale(1) rotateX(0);
+  opacity: 1;
+}
+
+/* Mensaje */
+.message {
+  padding: 20px;
+  text-align: center;
+}
+.message h1 {
+  font-size: 32px;
+  color: #8B4513;
+}
+.message p {
+  font-size: 18px;
+  margin: 10px 0;
+}
+.final-message {
+  font-size: 20px;
+  font-weight: bold;
+  color: #FFD700;
+}
+
+/* Animación de texto */
+.message h1, .message p {
+  opacity: 0;
+  transform: translateY(20px);
+}
+.card.show .message h1 {
+  animation: fadeUp 1s ease forwards;
+  animation-delay: 0.5s;
+}
+.card.show .message p:nth-child(2) {
+  animation: fadeUp 1s ease forwards;
+  animation-delay: 1s;
+}
+.card.show .message p:nth-child(3) {
+  animation: fadeUp 1s ease forwards;
+  animation-delay: 1.5s;
+}
+.card.show .final-message {
+  animation: fadeUp 1s ease forwards;
+  animation-delay: 2s;
+}
+
+/* Flores */
+.flower-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  pointer-events: none;
+}
+.flower {
+  width: 150px;
+  height: 150px;
+  position: absolute;
+  animation: fallAndRotate 8s linear forwards, fadeOut 1s ease-in forwards 7s;
+}
+.petal {
+  width: 30px;
+  height: 60px;
+  background-color: #FFD700;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform-origin: 50% 100%;
+}
+.center {
+  width: 40px;
+  height: 40px;
+  background-color: #FFA500;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+}
+.music-player {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.music-player audio {
+  width: 300px;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+.p1 { transform: translate(-50%, -100%) rotate(0deg); }
+.p2 { transform: translate(-50%, -100%) rotate(36deg); }
+.p3 { transform: translate(-50%, -100%) rotate(72deg); }
+.p4 { transform: translate(-50%, -100%) rotate(108deg); }
+.p5 { transform: translate(-50%, -100%) rotate(144deg); }
+.p6 { transform: translate(-50%, -100%) rotate(180deg); }
+.p7 { transform: translate(-50%, -100%) rotate(216deg); }
+.p8 { transform: translate(-50%, -100%) rotate(252deg); }
+.p9 { transform: translate(-50%, -100%) rotate(288deg); }
+.p10 { transform: translate(-50%, -100%) rotate(324deg); }
+
+/* Animaciones */
+@keyframes fallAndRotate {
+  from {
+    top: -100px;
+    transform: rotate(0deg);
+  }
+  to {
+    top: 100vh;
+    transform: rotate(720deg);
+  }
+}
+@keyframes fadeOut {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
+@keyframes pulse {
+  0%, 100% {
+    box-shadow: 0 0 15px rgba(255, 223, 90, 0.6);
+  }
+  50% {
+    box-shadow: 0 0 25px rgba(255, 223, 90, 1);
+  }
+}
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.flower-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1; /* detrás de la carta */
+  pointer-events: none;
+}
+
+.flower {
+  width: 150px;
+  height: 150px;
+  position: absolute;
+  animation: fallAndRotate 8s linear forwards, fadeOut 1s ease-in forwards 7s;
+}
+
+@keyframes fallAndRotate {
+  from {
+    top: -100px;
+    transform: rotate(0deg);
+  }
+  to {
+    top: 100vh;
+    transform: rotate(720deg);
+  }
+}
+
+@keyframes fadeOut {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
