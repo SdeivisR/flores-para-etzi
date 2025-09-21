@@ -241,3 +241,42 @@ body {
   from { opacity: 1; }
   to { opacity: 0; }
 }
+/* Ajustes para pantallas pequeñas */
+@media (max-width: 600px) {
+  .card-container {
+    width: 90%;         /* ocupa casi toda la pantalla */
+    height: auto;       /* que la altura se adapte al contenido */
+  }
+
+  #open-card-btn {
+    padding: 12px 20px;
+    font-size: 1em;
+  }
+
+  .message h1 {
+    font-size: 24px;
+  }
+
+  .message p {
+    font-size: 16px;
+  }
+
+  .final-message {
+    font-size: 18px;
+  }
+
+  .flower {
+    width: 100px;
+    height: 100px;
+  }
+
+  .petal {
+    width: 20px;
+    height: 40px;
+  }
+
+  .center {
+    width: 25px;
+    height: 25px;
+  }
+}
