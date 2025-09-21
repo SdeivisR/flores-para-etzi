@@ -9,7 +9,7 @@ body {
   align-items: center;
   overflow: hidden;
 
-  background: url('../images/fondo.png') no-repeat center center;
+  background: url('images/fondo.png') no-repeat center center;
   background-size: cover; /* ocupa toda la pantalla */
   background-attachment: fixed; /* efecto de parallax */
   background-position: center top;
