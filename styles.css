@@ -211,21 +211,38 @@ body {
 }
 
 /* ---------------------------- */
-/* Responsive: Móviles */
+/* Ajustes para pantallas pequeñas */
 @media (max-width: 600px) {
   .card-container {
-    width: 90%;
-    height: auto;
+    width: 90%;        /* ocupa casi toda la pantalla */
+    max-width: 400px;  /* opcional, para que no quede gigante */
+    margin: 0 auto;    /* centra horizontal */
+    transform-origin: top center; /* se despliega desde el centro arriba */
   }
+
+  .card {
+    width: 100%;
+  }
+
+  .button-container {
+    height: auto;          /* no ocupa todo el viewport */
+    padding: 20px 0;
+  }
+
   #open-card-btn {
-    padding: 12px 20px;
     font-size: 1em;
+    padding: 12px 20px;
   }
-  .message h1 { font-size: 24px; }
-  .message p { font-size: 16px; }
-  .final-message { font-size: 18px; }
-  .flower { width: 100px; height: 100px; }
-  .petal { width: 20px; height: 40px; }
-  .center { width: 25px; height: 25px; }
-  .music-player audio { width: 200px; }
+
+  .message h1 {
+    font-size: 24px;
+  }
+
+  .message p {
+    font-size: 16px;
+  }
+
+  .final-message {
+    font-size: 18px;
+  }
 }
