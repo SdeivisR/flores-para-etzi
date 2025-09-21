@@ -42,10 +42,6 @@ body {
   align-items: center;
   height: 100vh;
 }
-.card.show .fade-text {
-  animation: fadeUp 1s ease forwards;
-  animation-delay: 1.5s; /* ajusta según el orden */
-}
 
 /* ---------------------------- */
 /* Contenedor de la carta */
@@ -78,7 +74,7 @@ body {
 
 .card-inside {
   position: relative;
-  z-index: 20;
+  z-index: 20; /* Mensaje siempre arriba */
 }
 
 /* Cuando se muestra */
@@ -182,16 +178,9 @@ body {
 .p10 { transform: translate(-50%, -100%) rotate(324deg); }
 
 /* ---------------------------- */
-/* Música */
-.music-player {
-  margin-top: 20px;
-  display: flex;
-  justify-content: center;
-}
-.music-player audio {
-  width: 300px;
-  border-radius: 10px;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+/* Música invisible de fondo */
+#bg-music {
+  display: none; /* No se ve el reproductor */
 }
 
 /* ---------------------------- */
@@ -244,5 +233,29 @@ body {
 
   .final-message {
     font-size: 18px;
+  }
+
+  .flower {
+    width: 100px;
+    height: 100px;
+  }
+
+  .petal {
+    width: 20px;
+    height: 40px;
+  }
+
+  .center {
+    width: 25px;
+    height: 25px;
+  }
+}
+
+/* ---------------------------- */
+/* Ajuste para móviles con altura limitada */
+@media (max-height: 500px) {
+  .card-container {
+    max-height: 90vh;
+    overflow-y: auto;
   }
 }
