@@ -1,19 +1,21 @@
+/* ---------------------------- */
+/* Estilos generales */
 body {
   margin: 0;
   padding: 0;
   height: 100vh;
-  background-color: #f7f7f7;
   font-family: "Segoe UI", Arial, sans-serif;
   display: flex;
   justify-content: center;
   align-items: center;
   overflow: hidden;
 
-  background: url('images/fondo.png') no-repeat center center;
-  background-size: cover; /* ocupa toda la pantalla */
-  background-attachment: fixed; /* efecto de parallax */
-  background-position: center top;
+  background: url('images/fondo.png') no-repeat center top;
+  background-size: cover;
+  background-attachment: fixed;
 }
+
+/* ---------------------------- */
 /* Botón */
 #open-card-btn {
   padding: 15px 30px;
@@ -28,18 +30,20 @@ body {
   transition: transform 0.2s ease, box-shadow 0.2s ease;
   animation: pulse 2s infinite;
 }
-/* Contenedor del botón */
-.button-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh; /* ocupa toda la pantalla */
-}
 #open-card-btn:hover {
   transform: scale(1.1);
   box-shadow: 0 8px 20px rgba(240, 201, 41, 0.7);
 }
 
+/* Contenedor del botón */
+.button-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+/* ---------------------------- */
 /* Contenedor de la carta */
 .card-container {
   width: 500px;
@@ -48,8 +52,8 @@ body {
   border-radius: 12px;
   box-shadow: 0 4px 12px rgba(0,0,0,0.2);
   overflow: hidden;
-  transform: scaleY(0);     /* Oculta tipo rollo */
-  transform-origin: top;    /* Se despliega desde arriba */
+  transform: scaleY(0);
+  transform-origin: top;
   transition: transform 0.8s ease-in-out;
   position: relative;
   z-index: 10;
@@ -70,7 +74,7 @@ body {
 
 .card-inside {
   position: relative;
-  z-index: 20; /* Mensaje siempre arriba */
+  z-index: 20;
 }
 
 /* Cuando se muestra */
@@ -82,6 +86,7 @@ body {
   opacity: 1;
 }
 
+/* ---------------------------- */
 /* Mensaje */
 .message {
   padding: 20px;
@@ -123,6 +128,7 @@ body {
   animation-delay: 2s;
 }
 
+/* ---------------------------- */
 /* Flores */
 .flower-container {
   position: fixed;
@@ -160,17 +166,6 @@ body {
   transform: translate(-50%, -50%);
   z-index: 1;
 }
-.music-player {
-  margin-top: 20px;
-  display: flex;
-  justify-content: center;
-}
-
-.music-player audio {
-  width: 300px;
-  border-radius: 10px;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-}
 .p1 { transform: translate(-50%, -100%) rotate(0deg); }
 .p2 { transform: translate(-50%, -100%) rotate(36deg); }
 .p3 { transform: translate(-50%, -100%) rotate(72deg); }
@@ -182,101 +177,51 @@ body {
 .p9 { transform: translate(-50%, -100%) rotate(288deg); }
 .p10 { transform: translate(-50%, -100%) rotate(324deg); }
 
+/* ---------------------------- */
+/* Música */
+.music-player {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+}
+.music-player audio {
+  width: 300px;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+/* ---------------------------- */
 /* Animaciones */
 @keyframes fallAndRotate {
-  from {
-    top: -100px;
-    transform: rotate(0deg);
-  }
-  to {
-    top: 100vh;
-    transform: rotate(720deg);
-  }
+  from { top: -100px; transform: rotate(0deg); }
+  to { top: 100vh; transform: rotate(720deg); }
 }
-@keyframes fadeOut {
-  from { opacity: 1; }
-  to { opacity: 0; }
-}
+@keyframes fadeOut { from { opacity: 1; } to { opacity: 0; } }
 @keyframes pulse {
-  0%, 100% {
-    box-shadow: 0 0 15px rgba(255, 223, 90, 0.6);
-  }
-  50% {
-    box-shadow: 0 0 25px rgba(255, 223, 90, 1);
-  }
+  0%, 100% { box-shadow: 0 0 15px rgba(255, 223, 90, 0.6); }
+  50% { box-shadow: 0 0 25px rgba(255, 223, 90, 1); }
 }
 @keyframes fadeUp {
   from { opacity: 0; transform: translateY(20px); }
   to { opacity: 1; transform: translateY(0); }
 }
-.flower-container {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 1; /* detrás de la carta */
-  pointer-events: none;
-}
 
-.flower {
-  width: 150px;
-  height: 150px;
-  position: absolute;
-  animation: fallAndRotate 8s linear forwards, fadeOut 1s ease-in forwards 7s;
-}
-
-@keyframes fallAndRotate {
-  from {
-    top: -100px;
-    transform: rotate(0deg);
-  }
-  to {
-    top: 100vh;
-    transform: rotate(720deg);
-  }
-}
-
-@keyframes fadeOut {
-  from { opacity: 1; }
-  to { opacity: 0; }
-}
-/* Ajustes para pantallas pequeñas */
+/* ---------------------------- */
+/* Responsive: Móviles */
 @media (max-width: 600px) {
   .card-container {
-    width: 90%;         /* ocupa casi toda la pantalla */
-    height: auto;       /* que la altura se adapte al contenido */
+    width: 90%;
+    height: auto;
   }
-
   #open-card-btn {
     padding: 12px 20px;
     font-size: 1em;
   }
-
-  .message h1 {
-    font-size: 24px;
-  }
-
-  .message p {
-    font-size: 16px;
-  }
-
-  .final-message {
-    font-size: 18px;
-  }
-
-  .flower {
-    width: 100px;
-    height: 100px;
-  }
-
-  .petal {
-    width: 20px;
-    height: 40px;
-  }
-
-  .center {
-    width: 25px;
-    height: 25px;
-  }
+  .message h1 { font-size: 24px; }
+  .message p { font-size: 16px; }
+  .final-message { font-size: 18px; }
+  .flower { width: 100px; height: 100px; }
+  .petal { width: 20px; height: 40px; }
+  .center { width: 25px; height: 25px; }
+  .music-player audio { width: 200px; }
 }
